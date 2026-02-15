@@ -33,6 +33,10 @@ func main() {
 		fmt.Println("Invalid version selected: ", version)
 		os.Exit(1)
 	}
+	if version == strings.TrimPrefix(runtime.Version(), "go") {
+		fmt.Println("Version already installed.")
+		os.Exit(0)
+	}
 
 	url := fmt.Sprintf("https://go.dev/dl/go%s.linux-amd64.tar.gz", version)
 
